@@ -1,0 +1,8 @@
+{% load static %}
+<link href="{% static 'style.css' %}" rel="stylesheet">
+Você tem certeza que deseja remover a atividade "{{ atv.nome }}"?
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" name="confirm" value="Sim">
+  <input type="submit" value="Não">
+</form>

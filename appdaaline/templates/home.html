@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head><div class="site">
+  {% load static %}
+  <link href="{% static 'style.css' %}" rel="stylesheet"
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>App da Aline</title>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+  <div class="titulo">
+  <div class="borda">
+  <h1>Como sobreviver ao tédio</h1></div></div>
+  <h2></h2>
+  <h3></h3>
+  <div class="subtitulo"><h4>{{nome}}</h4></div>
+  <h5></h5>
+  <h6></h6>
+
+  <p>Por incrível que pareça, mesmo durante o período de aulas é possível ficar no tédio. A culpa disso tudo é ou a matéria horrorosa ou a procrastinação para não estudar a mesma.</p>
+
+  <p>Agora a questão é: <b>o que fazer quando isso acontece?</b> Podem ser infinitas as respostas, mas aqui vamos pensar em coisas que não gastam muito dinheiro nem muita energia, porque, convenhamos, quando o tédio bate <i>a energia não está lá em cima</i>. Vamos contar com algumas possibilidades caso haja um pouco mais de energia, mas vamos começar do zero.</p>
+
+  <p>Pensando na definição de tédio, o tédio é um momento de desinteresse da vida e do que está a sua volta. O fato do tédio ser ligado ao fato de não fazer nada é observado pelos <u>cientistas</u> como um momento oprtuno para o cérebro descansar da rotina agitada.</p>
+
+  <p>Um momento tediante, em que você não faça nada, pode ser estimulante para o seu cérebro. Não fazer nada e apenas pensar ou estar em algum lugar pode fazer com que seu cérebro. Na Itália, as pessoas têm isso muito claro. A expressão <i><a href="https://www.diariodepernambuco.com.br/noticia/opiniao/2023/07/il-dolce-far-niente-o-doce-fazer-nada.html">il dolce far niente</a></i> ("a doçura de não fazer nada") faz parte da cultura do país, onde o descanso, o prazer de ficar sem fazer nada, é parte da vida. Assim, vamos levar em nosso coração que os momentos de tédio são essenciais para nossa vida (mas não a todo momento, claro).</p>
+
+  <p>Com isso em mente, vamos começar nossa lista de descanço da mente. Bem, mais dita como coisas para fazer no tédio.
+  </p>
+  
+  <div class="imagem1">
+  <img src="https://cdn.pixabay.com/photo/2017/07/10/23/38/fuca-2491995_1280.jpg" width="300">
+  </div>
+
+  <div class="button_pag">
+    <button>
+    <a href="/atv">Adicionar nova atividade</a>
+    </button>
+    </div>
+
+  <div class="borda"><div class="subtitulo">
+  <h2>Lista do que fazer</h2></div></div>
+  <ol>
+    {% for coisa in coisas %}
+      <li>{{coisa.nome}} 
+        <div class="button_pag"> 
+        <button>
+        <a href="/atv/update/{{ coisa.id}}">Atualizar </a>
+        </button>
+        <button>
+        <a href="/atv/delete/{{ coisa.id}}">Remover </a>
+        </button>
+        </div>
+      </li>
+      <div class="img-total"><img class="img-lista" src={{coisa.icone}}></div>
+      <p>{{coisa.descricao}}</p>
+      <ul>
+      {% for lugar in coisa.lugar_set.all %}
+        <li><a href={{lugar.link}}>{{lugar.nome}}</a></li>
+      {% endfor %}
+      </ul>
+    {% endfor %}
+  </ol>
+
+
+</div>
+</body>
+
+</html>

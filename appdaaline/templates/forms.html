@@ -1,0 +1,58 @@
+<head>
+  {% load static %}
+  <link href="{% static 'style.css' %}" rel="stylesheet">
+  <h1>{{ action }} Atividades</h1>
+
+</head>
+<div class="formulario">
+<body>
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label>Nome: </label>
+    <div class="button_forms">
+    <input name="nome" value="{{atv.nome}}" required>
+    </div>
+  </div>
+  
+  <div>
+    <label>Número: </label>
+    <div class="button_forms">
+      <input name="numero" value="{{atv.numero}}" required>
+    </div>
+  </div>
+
+  <div>
+    <label>Ícone: </label>
+    <div class="button_forms">
+      <input name="icone" value="{{atv.icone}}" required>
+    </div>
+  </div>
+
+  <div>
+    <label>Descrição: </label>
+    <div class="button_forms">
+      <input name="descricao" value="{{atv.descricao}}" required>
+    </div>
+  </div>
+
+  <div>
+    <label>Tempo: </label>
+    <div class="button_forms" margin="5px">
+      <input type="number" name="tempo" value="{{atv.tempo}}" required>
+    </div>
+  </div>
+
+  <div>
+    <label>Energia: </label>
+    <div class="button_forms">
+      <input type="number" min="0" max= "100" name="energia" value="{{atv.energia}}" required>
+    </div>
+  </div>
+
+  <input type="submit" value="Registrar">
+
+  <a href="{% url 'listagem' %}">Cancelar</a>
+</form>
+</div>
+</body>
